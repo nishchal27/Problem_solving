@@ -5,14 +5,12 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args){
         //input take
-        Scanner sc = new Scanner(System.in);
-        LinkedList l1 = new LinkedList();
+        DoublyLL l1 = new DoublyLL();
         //I have an empty linked list li now.
-        l1.insertAtEnd(3);
-        l1.insertAtEnd(5);
-        l1.insertAtEnd(8);
-        l1.insertAtEnd(9);
         l1.insertAtBegn(1);
+        l1.insertAtBegn(2);
+        l1.insertAtBegn(3);
+        l1.insertAtBegn(4);
         l1.printLinkedlist();
     }
 }
