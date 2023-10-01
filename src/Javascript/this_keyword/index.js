@@ -33,16 +33,52 @@ function b() {
 
 //examples for 1st case:
 const video = {
-    title: 'a',
-    play() {
-        console.log(this);
-    },
-};
-
-//adding a method to the video object, stop is a method in a video object; 
-//*so here "this" refers to the video object; we're getting the same results as above.
-video.stop = function(){
+  title: "a",
+  play() {
     console.log(this);
+  },
 };
 
-video.stop();
+//adding a method to the video object, stop is a method in a video object;
+//*so here "this" refers to the video object; we're getting the same results as above.
+video.stop = function () {
+  console.log(this);
+};
+
+const videoTag = {
+  title: "a",
+  tags: ["a", "b", "c"],
+
+  //here "showTag()" is a method but the callback function inside it is a regular function
+  showTags() {
+    this.tags.forEach(function (tag) {
+      //*here "this" is referring to global space b'coz this is a callback function
+      //*which is a regular function and it's not an method of "videoTag" object
+      console.log(this, tag);
+    });
+  },
+};
+
+/*to solve the problem above we can use forEach method's arguments it take
+two arguments: 1. callback function 2. object. so we're passing "this" which refers to "videoTag" object.*/
+const videoTag2 = {
+  title: "a",
+  tags: ["a", "b", "c"],
+
+  //here "showTag()" is a method but the callback function inside it is a regular function
+  showTags() {
+    //here in "showTags()" we're in execution context of "showTags()" method
+    this.tags.forEach(
+      function (tag) {
+        console.log(this, tag);
+      },
+      //*here "this" is referring to the current object that is videoTag2 object,
+      //b'coz we're not in the callback function
+      this
+    );
+  },
+};
+
+// video.stop();
+// videoTag.showTags();
+videoTag2.showTags();
