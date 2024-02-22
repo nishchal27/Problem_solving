@@ -1,25 +1,24 @@
-// Ways for Object cloning 
+// Ways for Object cloning
 const originalObject = {
-    name: "John",
-    age: 30,
-    
-    // Nested object
-    address: {
-        city: "New York",
-        state: "NY"
-    },
+  name: "John",
+  age: 30,
 
-    // Methods
-    doAction: function () {
-        console.log(this.name + " is running");
-    }
+  // Nested object
+  address: {
+    city: "New York",
+    state: "NY",
+  },
+
+  // Methods
+  doAction: function () {
+    console.log(this.name + " is running in" + this.address.city);
+  },
 };
 
 // copying an object to new variable
-// this way it will only copy the reference of the object and 
+// this way it will only copy the reference of the object and
 // if we modify the copied object it will also modify the original object
 const copyiedObject = originalObject;
-
 
 // Shallow cloning using the spread operator
 // this only affects the top level properties of the object and nested objects
@@ -40,10 +39,4 @@ const deepClone1 = JSON.parse(JSON.stringify(originalObject));
 // solution for limitations mentioned above:
 //* top solution - use third-party libraries, such as "Lodash" and "Rambda".
 
-// Depending on specific requirements, you might need to implement a custom cloning method...
-// This approach is useful when you want fine-grained control over the cloning process.
-//* custom cloning
-
-
-console.log("deepclone: ",deepClone1);
-console.log("originalObject: ",originalObject);
+console.log("deepclone: ", deepClone1);
