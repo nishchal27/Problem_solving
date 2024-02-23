@@ -11,7 +11,7 @@ const originalObject = {
 
   // Methods
   doAction: function () {
-    console.log(this.name + " is running in" + this.address.city);
+    console.log(this.name + " is walking in " + this.address.city);
   },
 };
 
@@ -39,4 +39,6 @@ const deepClone1 = JSON.parse(JSON.stringify(originalObject));
 // solution for limitations mentioned above:
 //* top solution - use third-party libraries, such as "Lodash" and "Rambda".
 
-console.log("deepclone: ", deepClone1);
+console.log("shallow1: ", shallowClone1);
+console.log("shallow2: ", shallowClone2);
+console.log("deepclone1: ", deepClone1);
