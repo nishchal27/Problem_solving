@@ -40,5 +40,6 @@ const deepClone1 = JSON.parse(JSON.stringify(originalObject));
 //* top solution - use third-party libraries, such as "Lodash" and "Rambda".
 
 console.log("shallow1: ", shallowClone1);
+console.log("shallow1_act: ", shallowClone1.doAction());
 console.log("shallow2: ", shallowClone2);
 console.log("deepclone1: ", deepClone1);
